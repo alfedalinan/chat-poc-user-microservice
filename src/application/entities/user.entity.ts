@@ -1,22 +1,22 @@
-import { Table, Column, Model, AutoIncrement, PrimaryKey, DataType, Unique, AllowNull, Default, Sequelize } from 'sequelize-typescript'
+import { Table, Column, Model, AutoIncrement, PrimaryKey, DataType, Unique, AllowNull } from 'sequelize-typescript'
 
 @Table
 export class User extends Model {
-    @Column(DataType.INTEGER)
     @AutoIncrement
     @PrimaryKey
+    @Column(DataType.INTEGER)
     id: number
 
-    @Column
     @AllowNull(false)
+    @Column(DataType.STRING)
     username: string
 
-    @Column(DataType.STRING)
     @AllowNull(false)
     @Unique
+    @Column(DataType.STRING)
     email: string
 
-    @Column(DataType.STRING)
     @AllowNull(false)
+    @Column(DataType.STRING)
     password: string
 }

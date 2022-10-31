@@ -10,12 +10,7 @@ export class UserController {
     @Post()
     @HttpCode(HttpStatus.OK)
     async create(@Body() userDto: UserDto) {
-      let user = new User()
-      user.email = userDto.email
-      user.name = userDto.name
-      user.password = userDto.password
-
-      return await this.userService.create(user)
+      return await this.userService.create(userDto)
     }
   
     @Get()
@@ -30,12 +25,7 @@ export class UserController {
   
     @Patch(':id')
     async update(@Param('id', ParseIntPipe) id: number, @Body() userDto: UserDto) {
-      let user = new User()
-      user.name = userDto.name
-      user.email = userDto.email
-      user.password = userDto.password
-
-      return await this.userService.update(id, user)
+      return await this.userService.update(id, userDto)
     }
   
     @Delete(':id')
