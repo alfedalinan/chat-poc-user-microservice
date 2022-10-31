@@ -1,0 +1,27 @@
+version: "3.4"
+
+services:
+  # api: 
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: .
+  #   depends_on:
+  #     - postgres
+  #   environment:
+  #     SERVER_PORT: ${SERVER_PORT}
+  #     DB_HOST: ${DB_HOST}
+  #     DB_USER: ${DB_USER}
+  #     DB_PASSWORD: ${DB_PASSWORD}
+  #     DB_NAME: ${DB_NAME}
+    
+  #   ports:
+  #     - "${SERVER_PORT}:3500"
+
+  postgres:
+    image: postgres:14.4
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
