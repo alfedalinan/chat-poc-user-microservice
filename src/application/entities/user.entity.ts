@@ -1,4 +1,5 @@
-import { Table, Column, Model, AutoIncrement, PrimaryKey, DataType, Unique, AllowNull } from 'sequelize-typescript'
+import { Table, Column, Model, AutoIncrement, PrimaryKey, DataType, Unique, AllowNull, HasMany } from 'sequelize-typescript'
+import { UserContact } from './user-contact.entity'
 
 @Table
 export class User extends Model {
@@ -19,4 +20,7 @@ export class User extends Model {
     @AllowNull(false)
     @Column(DataType.STRING)
     password: string
+
+    @HasMany(() => UserContact)
+    userContacts: UserContact[]
 }
