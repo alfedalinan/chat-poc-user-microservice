@@ -21,6 +21,12 @@ export class User extends Model {
     @Column(DataType.STRING)
     password: string
 
+    @Column(DataType.STRING)
+    firstName: string
+
+    @Column(DataType.STRING)
+    lastName: string
+
     @HasMany(() => UserContact)
     userContacts: UserContact[]
 }

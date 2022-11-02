@@ -10,7 +10,11 @@ class UserDto {
     email?: string
 
     @IsNotEmpty()
-    password?: string  
+    password?: string
+    
+    firstName?: string
+
+    lastName?: string
 }
 
 export { UserDto }
