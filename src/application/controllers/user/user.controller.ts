@@ -9,27 +9,27 @@ export class UserController {
     
     @Post()
     @HttpCode(HttpStatus.OK)
-    async create(@Body() userDto: UserDto) {
+    async create(@Body() userDto: UserDto): Promise<User> {
       return await this.userService.create(userDto)
     }
   
     @Get()
-    async findAll() {
+    async findAll(): Promise<User[]> {
       return await this.userService.findAll();
     }
   
     @Get(':id')
-    async findOne(@Param('id', ParseIntPipe) id: number) {
+    async findOne(@Param('id', ParseIntPipe) id: number): Promise<User> {
       return await this.userService.findOne(id);
     }
   
     @Patch(':id')
-    async update(@Param('id', ParseIntPipe) id: number, @Body() userDto: UserDto) {
+    async update(@Param('id', ParseIntPipe) id: number, @Body() userDto: UserDto): Promise<[affectedCount: number]> {
       return await this.userService.update(id, userDto)
     }
   
     @Delete(':id')
-    async remove(@Param('id', ParseIntPipe) id: number) {
+    async remove(@Param('id', ParseIntPipe) id: number): Promise<number> {
       return await this.userService.remove(id)
     }
 }
