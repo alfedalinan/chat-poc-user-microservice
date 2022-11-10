@@ -90,7 +90,6 @@ describe('UserContactController', () => {
     return request(app.getHttpServer())
       .delete(`/user-contacts/${id}`)
       .then(response => {
-        console.log(response.body)
         expect(response.statusCode).toBe(200)
         expect(response.body).toBeTruthy()
       })
